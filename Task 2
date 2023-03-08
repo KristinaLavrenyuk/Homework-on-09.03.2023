@@ -1,0 +1,27 @@
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    ifstream in("sounds.txt");
+    ofstream out("result.txt");
+
+    double max, min, sound[1000]{};
+    int i = 0;
+    in >> max >> min;
+
+    while (in)
+    {
+        in >> sound[i];
+        if (in.eof()) break;
+        if (sound[i] > max) sound[i] = max;
+        if (sound[i] < min) sound[i] = min;
+        out << sound[i] << endl;
+        cout << sound[i] << endl;
+        i++;
+    }
+
+    system("pause");
+}
