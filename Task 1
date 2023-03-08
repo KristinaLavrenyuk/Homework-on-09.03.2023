@@ -1,0 +1,31 @@
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+    ifstream in("sounds.txt");
+    ofstream out("result.txt");
+
+    float max, min;
+    int n;
+    in >> n;
+    double* sound = new double[n];
+
+    for (int i = 0; i <= n; i++)
+    {
+        if (i == n) in >> max >> min;
+        else in >> sound[i];
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        if (sound[i] > max) sound[i] = max;
+        if (sound[i] < min) sound[i] = min;
+        //cout << sound[i] << endl;
+        out << sound[i] << endl;
+    }
+
+    system("pause");
+}
